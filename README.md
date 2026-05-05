@@ -2,19 +2,18 @@
 
 <img src="https://raw.githubusercontent.com/Devopstrio/.github/main/assets/Browser_logo.png" height="150" alt="Multi-Region Application Patterns Logo" />
 
-<h1>Multi-Region Application Patterns Platform</h1>
+<h1>Multi-Region Application Patterns</h1>
 
-<p><strong>The Institutional-Grade Platform for High-Availability, Multi-Region Resilience, and Global Traffic Orchestration</strong></p>
+<p><strong>The Institutional-Grade Platform for High-Availability, Multi-Region Resilience, and Global Traffic Orchestration.</strong></p>
 
-[![Standard: Multi--Region--Resilience](https://img.shields.io/badge/Standard-Multi--Region--Resilience-emerald.svg?style=for-the-badge&labelColor=000000)]()
+[![Standard: Resilience-Excellence](https://img.shields.io/badge/Standard-Resilience--Excellence-emerald.svg?style=for-the-badge&labelColor=000000)]()
 [![Status: Production--Ready](https://img.shields.io/badge/Status-Production--Ready-emerald.svg?style=for-the-badge&labelColor=000000)]()
 [![Architecture: Active--Active](https://img.shields.io/badge/Architecture-Active--Active-blue.svg?style=for-the-badge&labelColor=000000)]()
-[![Routing: Latency--Aware](https://img.shields.io/badge/Routing-Latency--Aware-gold.svg?style=for-the-badge&labelColor=000000)]()
 
 <br/>
 
 > **"Latency is a speed limit; Resilience is a choice."** 
-> Multi-Region Application Patterns Platform is a flagship solution for SREs, Cloud Architects, and Platform Engineering teams. By orchestrating active-active deployments, cross-region geo-replication, and automated failover, it enables organizations to achieve institutional-scale availability and disaster recovery readiness.
+> **Multi-Region Application Patterns** is an enterprise-grade platform designed to provide a secure, measurable, and highly automated foundation for global application availability. It orchestrates the complex lifecycle of multi-region infrastructure—from active-active traffic steering and cross-region data replication to automated failover and unified resiliency governance.
 
 </div>
 
@@ -22,645 +21,260 @@
 
 ## 🏛️ Executive Summary
 
-The **Multi-Region Application Patterns Platform** is a specialized flagship solution designed for Global Enterprises, Mission-Critical Business Units, and SRE Organizations. As organizations scale to support global user bases, the reliance on a single region becomes a catastrophic single point of failure (SPOF). This platform addresses these complexities using a cloud-native, "multi-region-first" framework.
+Single-region application footprints and manual disaster recovery procedures are strategic operational liabilities; lack of centralized multi-region orchestration is a primary barrier to organizational reliability. Organizations fail to achieve "Five Nines" availability not because of a lack of servers, but because of fragmented resiliency standards, lack of automated data replication, and an inability to orchestrate regional failover with operational precision.
 
-This platform provides a **Unified Resilience Pattern Plane**. It demonstrates how to orchestrate institutional high-availability—using **FastAPI**, **React 18**, **Kafka**, and **Terraform**—to create a "Highly Resilient" application culture. By providing **Active-Active Routing**, **Geo-Replication**, **Regional Isolation**, and **Automated Failover**, it enables organizations to move from "Single-Region Fragility" to "Multi-Region Resilience Capabilities."
-
----
-
-## 📉 The "Single-Region Fragility" Problem
-
-Enterprises scaling applications in a single region face existential challenges:
-- **Regional Outages**: Natural disasters, fiber cuts, or massive cloud provider failures that result in 100% downtime for regional workloads.
-- **Latency Friction**: Users far from the primary region experience degraded performance (300ms+ RTT), impacting conversion and satisfaction.
-- **Deployment Risk**: A "bad push" in a single region can impact the entire user base, whereas multi-region can support canary rollouts.
-- **Data Recovery Gap**: Lack of geo-replicated data leads to high RPO (Recovery Point Objective) and RTO (Recovery Time Objective) during disasters.
+This platform provides the **Resiliency Intelligence Plane**. It implements a complete **Enterprise Resiliency-as-Code Framework**, enabling SRE and Platform teams to manage global availability as a first-class citizen. By automating the deployment of geographically distributed workloads and orchestrating real-time traffic steering, we ensure that every organizational asset—from public-facing e-commerce portals to backend financial ledger systems—is resilient by default, audited for history, and strictly aligned with institutional disaster recovery frameworks.
 
 ---
 
-## 🚀 Strategic Drivers & Business Outcomes
+## 📐 Architecture Storytelling: Principal Reference Models
 
-### 🎯 Strategic Drivers
-- **Standardized Resilience Patterns**: Establishing repeatable Active-Active and Active-Passive blueprints across all service tiers.
-- **Geo-Synchronized Data Fabric**: Using event-driven replication and database synchronization to ensure global data consistency.
-- **Global Traffic Steering**: Implementing latency-aware and geography-based routing to optimize user experience and fault tolerance.
+### 1. Principal Architecture: Global Multi-Region Availability & Resiliency Intelligence Plane
+This diagram illustrates the end-to-end flow from global traffic steering and multi-region provisioning to cross-region data replication, failover orchestration, and institutional resiliency auditing.
 
-### 💰 Business Outcomes
-- **99.999% Global Uptime**: Achieving "Five Nines" availability by distributing workloads across independent regional failure domains.
-- **Sub-100ms Latency for Global Users**: By routing users to the nearest healthy region, significantly improving application responsiveness.
-- **Zero-Touch Failover**: Reducing RTO from hours to seconds through automated health detection and DNS-based traffic switching.
-
----
-
-## 📐 Architecture Storytelling: 80+ Advanced Diagrams
-
-### 1. Executive Multi-Region Resilience Architecture
-*The global flow of traffic and data across independent regions.*
 ```mermaid
-graph TD
-    subgraph "Global Traffic Management"
-        DNS[Global DNS / Route53]
-        GTM[Global Traffic Manager]
+graph LR
+    %% Subgraph Definitions
+    subgraph TrafficManagement["Global Traffic Steering"]
+        direction TB
+        GSLB["Global Load Balancer (Route53/FrontDoor)"]
+        WAF["Global WAF Edge"]
+        CDN["Edge Content Delivery (CloudFront)"]
     end
 
-    subgraph "Region: US-East-1 (Primary)"
-        LB_A[L7 Load Balancer]
-        App_A[Application Cluster]
-        DB_A[(Primary DB)]
+    subgraph IntelligenceEngine["Resiliency Intelligence Hub"]
+        direction TB
+        API["FastAPI Resilience Gateway"]
+        Replicator["Data Replication Orchestrator"]
+        FailoverMgr["Failover & Health Manager"]
+        Consistency["Global Consistency Validator"]
     end
 
-    subgraph "Region: EU-West-1 (Active)"
-        LB_B[L7 Load Balancer]
-        App_B[Application Cluster]
-        DB_B[(Secondary DB)]
+    subgraph RegionalClusters["Multi-Region Execution Fleet"]
+        direction TB
+        RegionA["Region A (Active) - EKS"]
+        RegionB["Region B (Active) - EKS"]
+        RegionC["Region C (Passive/DR) - EKS"]
     end
 
-    subgraph "Data Sync"
-        Repl[Geo-Replication Engine]
-        Kafka[Cross-Region Kafka]
+    subgraph OperationsHub["Institutional Resiliency Hub"]
+        direction TB
+        Scorecard["Resiliency Maturity Score"]
+        Analytics["Latency & Availability Stats"]
+        Audit["Forensic Resiliency Metadata Lake"]
     end
 
-    DNS --> GTM
-    GTM -->|Latency: 45ms| LB_A
-    GTM -->|Latency: 85ms| LB_B
-    LB_A --> App_A
-    LB_B --> App_B
-    App_A --> DB_A
-    App_B --> DB_B
-    DB_A <-->|Logical Replication| Repl
-    Repl <--> DB_B
-    App_A --> Kafka
-    Kafka --> App_B
-```
+    subgraph DevOps["Resiliency-as-Code Orchestration"]
+        direction TB
+        TF["Terraform Multi-Region Modules"]
+        Chaos["Chaos Engineering Engine"]
+        ChatOps["Failover Approval Hub"]
+    end
 
-### 2. Active-Active Failover Logic
-*How the platform handles a regional outage.*
-```mermaid
-sequenceDiagram
-    participant User as Global User
-    participant DNS as Route 53 (Health Check)
-    participant RegA as Region A (Healthy)
-    participant RegB as Region B (Healthy)
-
-    User->>DNS: Request api.global.local
-    DNS-->>User: Region A IP (Lowest Latency)
-    User->>RegA: POST /orders
-
-    Note over RegA: Region A Fails (Outage)
+    %% Flow Arrows
+    TrafficManagement -->|1. Route User| RegionalClusters
+    RegionalClusters -->|2. Sync Data| Replicator
+    Replicator -->|3. Validate Consistency| Consistency
+    FailoverMgr -->|4. Monitor Health| RegionalClusters
     
-    DNS->>RegA: Health Check (FAILED)
-    DNS->>DNS: Update Routing: Remove Region A
+    FailoverMgr -->|5. Trigger Failover| GSLB
+    API -->|6. Visualize Health| Scorecard
+    Scorecard -->|7. Track RTO/RPO| Analytics
+    Scorecard -->|8. Record Event| Audit
     
-    User->>DNS: Request api.global.local
-    DNS-->>User: Region B IP (Healthy)
-    User->>RegB: POST /orders
+    TF -->|9. Provision Regions| IntelligenceEngine
+    Chaos -->|10. Simulate Outage| RegionalClusters
+    ChatOps -->|11. Approve Recovery| FailoverMgr
+    Audit -->|12. Improve Models| FailoverMgr
+
+    %% Styling
+    classDef traffic fill:#f5f5f5,stroke:#616161,stroke-width:2px;
+    classDef intel fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px;
+    classDef regional fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+    classDef ops fill:#ede7f6,stroke:#311b92,stroke-width:2px;
+    classDef devops fill:#fffde7,stroke:#f57f17,stroke-width:2px;
+
+    class TrafficManagement traffic;
+    class IntelligenceEngine intel;
+    class RegionalClusters regional;
+    class OperationsHub ops;
+    class DevOps devops;
 ```
 
-### 3. Cross-Region Geo-Replication Lifecycle
-```mermaid
-stateDiagram-v2
-    [*] --> LocalWrite: Region A Commit
-    LocalWrite --> Capture: CDC / BinLog Capture
-    Capture --> Transport: Cross-Region Transfer
-    Transport --> Replay: Apply to Region B
-    Replay --> [*]: Global Consistent
-```
+### 2. The Multi-Region Lifecycle Flow
+The continuous path of a multi-region application from initial design and provisioning to active replication, failover, and institutional forensic auditing.
 
-### 4. Regional Isolation & Fault Containment
-```mermaid
-graph TD
-    subgraph "Region A"
-        SvcA1[Service A]
-        SvcA2[Service B]
-    end
-    subgraph "Region B"
-        SvcB1[Service A]
-        SvcB2[Service B]
-    end
-
-    SvcA1 -->|Local Only| SvcA2
-    SvcB1 -->|Local Only| SvcB2
-    Note right of SvcA1: Fallback only on regional failure
-```
-
-### 5. Multi-Region Blue/Green Deployment
 ```mermaid
 graph LR
-    subgraph "Production"
-        RegA_Blue[Region A: Blue]
-        RegB_Blue[Region B: Blue]
-    end
-    subgraph "Next Release"
-        RegA_Green[Region A: Green]
-        RegB_Green[Region B: Green]
-    end
-
-    GTM[Global Traffic Manager] -->|Current| RegA_Blue
-    GTM -.->|Switch| RegA_Green
+    Design["Design Topology"] --> Provision["Provision Regions"]
+    Provision --> Replicate["Replicate Data"]
+    Replicate --> Failover["Orchestrate Failover"]
+    Failover --> Audit["Forensic Audit"]
 ```
 
-### 6. Event-Driven Sync (Kafka)
+### 3. Active-Active Global Traffic Steering Topology
+Utilizing Global Server Load Balancers (GSLB) to distribute traffic across multiple active regions based on proximity, health, and regional capacity, ensuring the lowest possible latency for global users.
+
 ```mermaid
 graph LR
-    AppA[App Region A] --> KafkaA[Kafka Region A]
-    KafkaA --> Mirror[Mirror Maker]
-    Mirror --> KafkaB[Kafka Region B]
-    KafkaB --> AppB[App Region B]
+    User["Global User"] --> GSLB["GSLB (Latency-Based)"]
+    GSLB -->|Route| RegA["Region A (US-East)"]
+    GSLB -->|Route| RegB["Region B (EU-West)"]
+    RegA --- Health["Health Check Loop"]
 ```
 
-### 7. Global Observability & Tracing
-```mermaid
-graph LR
-    Req[Global Request] --> Span1[Region A Span]
-    Span1 --> Span2[Region B Span]
-    Span2 --> Trace[Unified Trace Map]
-```
+### 4. Active-Passive Disaster Recovery Flow
+Orchestrating the transition of traffic from a primary region to a secondary/DR region during a catastrophic failure, while maintaining strict RPO/RTO targets for data consistency.
 
-### 8. SLA/SLO Tracking Model
-```mermaid
-graph LR
-    Metrics[Regional Metrics] --> Engine[SLO Engine]
-    Engine --> Dashboard[Global Resilience View]
-    Dashboard --> Alerts[SRE Compliance Alerts]
-```
-
-### 9. Multi-Cloud Resilience Topology
 ```mermaid
 graph TD
-    subgraph "Cloud: AWS"
-        AWS[Region us-east-1]
-    end
-    subgraph "Cloud: Azure"
-        AZ[Region westeurope]
-    end
-    AWS <-->|Cross-Cloud Sync| AZ
+    Primary["Primary Region (Down)"] --> Detect["Outage Detection"]
+    Detect --> Promote["Promote Secondary DB"]
+    Promote --> Update["Update DNS/Traffic"]
+    Update --> Secondary["Secondary Region (Active)"]
 ```
 
-### 10. Executive Resilience Dashboard
-```mermaid
-graph LR
-    API[Backend API] --> React[Vite / React Hub]
-    React --> Recharts[Visual Analytics]
-    Recharts --> Executive[Availability Insights]
-```
-
-### 11. Multi-region architecture
-```mermaid
-graph LR
-    M[Mult] --> R[Regi]
-```
-
-### 12. Active-active flow
-```mermaid
-graph LR
-    A[Acti] --> A[Acti]
-```
-
-### 13. Active-passive flow
-```mermaid
-graph LR
-    A[Acti] --> P[Pass]
-```
-
-### 14. Failover orchestration flow
-```mermaid
-graph LR
-    F[Fail] --> O[Orch]
-```
-
-### 15. Replication flow
-```mermaid
-graph LR
-    R[Repl] --> F[Flow]
-```
-
-### 16. Latency-aware routing
-```mermaid
-graph LR
-    L[Late] --> R[Rout]
-```
-
-### 17. Geo-replication logic
-```mermaid
-graph LR
-    G[Geo] --> R[Repl]
-```
-
-### 18. Disaster recovery flow
-```mermaid
-graph LR
-    D[Disa] --> R[Reco]
-```
-
-### 19. Consistency model logic
-```mermaid
-graph LR
-    C[Cons] --> M[Mode]
-```
-
-### 20. Event-driven sync flow
-```mermaid
-graph LR
-    E[Even] --> S[Sync]
-```
-
-### 21. Blue/Green region flow
-```mermaid
-graph LR
-    B[Blue] --> G[Gree]
-```
-
-### 22. Regional isolation check
-```mermaid
-graph LR
-    R[Regi] --> I[Isol]
-```
-
-### 23. Health check pipeline
-```mermaid
-graph LR
-    H[Heal] --> C[Chec]
-```
-
-### 24. Failover detection logic
-```mermaid
-graph LR
-    F[Fail] --> D[Dete]
-```
-
-### 25. Traffic steering logic
-```mermaid
-graph LR
-    T[Traf] --> S[Stee]
-```
-
-### 26. Global gateway flow
-```mermaid
-graph LR
-    G[Glob] --> G[Gate]
-```
-
-### 27. Cross-region cache flow
-```mermaid
-graph LR
-    C[Cros] --> C[Cach]
-```
-
-### 28. Infrastructure: Networking
-```mermaid
-graph LR
-    I[Infr] --> N[Netw]
-```
-
-### 29. Infrastructure: Kubernetes
-```mermaid
-graph LR
-    I[Infr] --> K[Kube]
-```
-
-### 30. Infrastructure: Database
-```mermaid
-graph LR
-    I[Infr] --> D[Data]
-```
-
-### 31. Infrastructure: Kafka
-```mermaid
-graph LR
-    I[Infr] --> K[Kafk]
-```
-
-### 32. Infrastructure: Redis
-```mermaid
-graph LR
-    I[Infr] --> R[Redi]
-```
-
-### 33. Monitoring: Prometheus
-```mermaid
-graph LR
-    M[Moni] --> P[Prom]
-```
-
-### 34. Monitoring: Grafana
-```mermaid
-graph LR
-    M[Moni] --> G[Graf]
-```
-
-### 35. Monitoring: Alerts
-```mermaid
-graph LR
-    M[Moni] --> A[Aler]
-```
-
-### 36. CI/CD: Build pipeline
-```mermaid
-graph LR
-    C[CICD] --> B[Buil]
-```
-
-### 37. CI/CD: Test pipeline
-```mermaid
-graph LR
-    C[CICD] --> T[Test]
-```
-
-### 38. CI/CD: Deploy pipeline
-```mermaid
-graph LR
-    C[CICD] --> D[Depl]
-```
-
-### 39. Frontend: Dashboard
-```mermaid
-graph LR
-    F[Fron] --> D[Dash]
-```
-
-### 40. Frontend: Health view
-```mermaid
-graph LR
-    F[Fron] --> H[Heal]
-```
-
-### 41. API: Auth flow
-```mermaid
-graph LR
-    A[API] --> A[Auth]
-```
-
-### 42. API: Region status
-```mermaid
-graph LR
-    A[API] --> R[Regi]
-```
-
-### 43. API: Metrics flow
-```mermaid
-graph LR
-    A[API] --> M[Metr]
-```
-
-### 44. API: Order service
-```mermaid
-graph LR
-    A[API] --> O[Orde]
-```
-
-### 45. Worker: Replication
-```mermaid
-graph LR
-    W[Work] --> R[Repl]
-```
-
-### 46. Worker: Failover
-```mermaid
-graph LR
-    W[Work] --> F[Fail]
-```
-
-### 47. Worker: Sync
-```mermaid
-graph LR
-    W[Work] --> S[Sync]
-```
-
-### 48. Failover detection flow
-```mermaid
-graph LR
-    F[Fail] --> D[Dete]
-```
-
-### 49. Regional recovery flow
-```mermaid
-graph LR
-    R[Regi] --> R[Reco]
-```
-
-### 50. Data consistency check
-```mermaid
-graph LR
-    D[Data] --> C[Cons]
-```
-
-### 51. Traffic re-balancing
-```mermaid
-graph LR
-    T[Traf] --> R[Reba]
-```
-
-### 52. Canary rollout logic
-```mermaid
-graph LR
-    C[Cana] --> R[Roll]
-```
-
-### 53. Regional fallback logic
-```mermaid
-graph LR
-    R[Regi] --> F[Fall]
-```
-
-### 54. SLO tracking flow
-```mermaid
-graph LR
-    S[SLO] --> T[Trac]
-```
-
-### 55. SLA compliance report
-```mermaid
-graph LR
-    S[SLA] --> C[Comp]
-```
-
-### 56. Multi-cloud sync flow
-```mermaid
-graph LR
-    M[Mult] --> S[Sync]
-```
-
-### 57. Resilience policy life
-```mermaid
-graph LR
-    R[Resi] --> P[Poli]
-```
-
-### 58. Global audit trail
-```mermaid
-graph LR
-    G[Glob] --> A[Audi]
-```
-
-### 59. Fault tolerance map
-```mermaid
-graph LR
-    F[Faul] --> T[Tole]
-```
-
-### 60. Security RBAC flow
-```mermaid
-graph LR
-    S[Secu] --> R[RBAC]
-```
-
-### 61. Ingestion latency check
-```mermaid
-graph LR
-    I[Inge] --> L[Late]
-```
-
-### 62. Replication lag alert
-```mermaid
-graph LR
-    R[Repl] --> L[Lag]
-```
-
-### 63. Regional isolation efficiency
-```mermaid
-graph LR
-    R[Regi] --> I[Isol]
-```
-
-### 64. KPI tracking: Availability
-```mermaid
-graph LR
-    K[KPI] --> A[Avai]
-```
+### 5. Multi-Region Data Replication Strategy
+Implementing a robust data fabric using asynchronous and synchronous replication (e.g., Aurora Global Database, Cosmos DB) to ensure data is available across geographic boundaries.
 
-### 65. KPI tracking: Latency
 ```mermaid
 graph LR
-    K[KPI] --> L[Late]
+    Writer["Primary Writer (Reg A)"] -->|Async Replication| ReaderB["Secondary Reader (Reg B)"]
+    Writer -->|Async Replication| ReaderC["Secondary Reader (Reg C)"]
+    ReaderB --- Sync["Consistency Validator"]
 ```
 
-### 66. Optimization roadmap
-```mermaid
-graph LR
-    O[Opti] --> R[Road]
-```
+### 6. Global Content Delivery & Edge Logic Flow
+Leveraging Content Delivery Networks (CDNs) and Edge Computing (e.g., CloudFront Functions, Lambda@Edge) to offload regional backends and serve static/dynamic content closer to the user.
 
-### 67. Value realization
 ```mermaid
 graph LR
-    V[Valu] --> R[Real]
+    User["End User"] --> Edge["Edge Location"]
+    Edge -->|Cache Hit| Content["Cached Asset"]
+    Edge -->|Cache Miss| Regional["Regional Backend"]
 ```
 
-### 68. Institutional maturity
-```mermaid
-graph LR
-    I[Inst] --> M[Matu]
-```
+### 7. Institutional Resiliency Scorecard
+Grading organizational performance based on key indicators: Recovery Time Objective (RTO), Recovery Point Objective (RPO), and Regional Failure Isolation.
 
-### 69. Strategy execution
 ```mermaid
-graph LR
-    S[Stra] --> E[Exec]
+graph TD
+    Post["Resiliency Health: 98%"] --> Risk["DR Gap: 2%"]
+    Post --- C1["RTO (< 5 Min)"]
+    Post --- C2["RPO (< 30 Sec)"]
 ```
 
-### 70. Ecosystem map
-```mermaid
-graph LR
-    E[Ecos] --> M[Map]
-```
+### 8. Identity & RBAC for Global Ops Governance
+Managing fine-grained access to regional failover triggers, replication policies, and global traffic maps between Global SREs, Regional Admins, and DR Coordinators.
 
-### 71. Supply chain of data
 ```mermaid
-graph LR
-    S[Supp] --> D[Data]
+graph TD
+    SRE["Global SRE"] --> Hub["Manage Resiliency Hub"]
+    Admin["Regional Admin"] --> Reg["Manage Local Cluster"]
+    Coord["DR Coordinator"] --> Fail["Orchestrate DR Tests"]
 ```
 
-### 72. Resilience blueprint
-```mermaid
-graph LR
-    R[Resi] --> B[Blue]
-```
+### 9. IaC Deployment: Resiliency-as-Code Framework
+Using modular Terraform to deploy and manage the versioned distribution of the multi-region hubs, cluster fleets, and forensic metadata lakes.
 
-### 73. Geo-distributed map
 ```mermaid
 graph LR
-    G[Geo] --> D[Dist]
+    HCL["Infrastructure Code"] --> TF["Terraform Apply"]
+    TF --> Engine["Resiliency Control Plane"]
+    Engine --> Regions["HA Regional Clusters"]
 ```
 
-### 74. Transformation roadmap
-```mermaid
-graph LR
-    T[Tran] --> R[Road]
-```
+### 10. Chaos Engineering & Regional Partition Flow
+Testing the effectiveness of regional failover by injecting controlled failures, such as network partitions or regional API blackouts, to validate the autonomous recovery capabilities of the platform.
 
-### 75. Value realization model
 ```mermaid
 graph LR
-    V[Valu] --> R[Real]
+    Inject["Inject Regional Failure"] --> Observe["Observe Traffic Switch"]
+    Observe --> Verify["Verify Data Integrity"]
+    Verify --> Restore["Restore Region"]
 ```
 
-### 76. Governance audit trail
-```mermaid
-graph LR
-    G[Govn] --> A[Audi]
-```
+### 11. Metadata Lake for Forensic Resiliency Audit
+Storing long-term records of every regional failover, replication event, and health check result for institutional record-keeping, compliance auditing, and post-incident investigation.
 
-### 77. Security RBAC flow
 ```mermaid
 graph LR
-    S[Secu] --> R[RBAC]
+    Failover["Failover Event"] --> Stream["Forensic Stream"]
+    Stream --> Lake["Resiliency Metadata Lake"]
+    Lake --> Trends["Availability & Recovery Trends"]
 ```
 
-### 78. Compliance validation
-```mermaid
-graph LR
-    C[Comp] --> V[Vali]
-```
+---
 
-### 79. Regional boundary check
-```mermaid
-graph LR
-    R[Regi] --> B[Boun]
-```
+## 🏛️ Core Resiliency Pillars
 
-### 80. Executive summary hub
-```mermaid
-graph LR
-    E[Exec] --> H[Hub]
-```
+1.  **Active-Active Traffic Orchestration**: Eliminating single-region SPOFs through global load balancing.
+2.  **Cross-Region Data Synchronization**: Ensuring global data availability through managed geo-replication.
+3.  **Autonomous Failover & Recovery**: Reducing RTO through automated health detection and traffic steering.
+4.  **Regional Failure Isolation**: Hard-fencing regional environments to prevent cascading failures across the globe.
+5.  **Chaos-Tested Reliability**: Validating resiliency posture through continuous regional failure injection.
+6.  **Full Resiliency Auditability**: Immutable recording of every regional event and failover decision for institutional forensics.
 
 ---
 
 ## 🛠️ Technical Stack & Implementation
 
-### Resilience & Replication Engine
-- **Processing**: Python 3.11+ / FastAPI / Kafka / Redis.
-- **Data Sync**: Logical Replication Simulation, Event-Driven Cross-Region Sync.
-- **Failover**: DNS-based Traffic Switching (Route 53 Simulation), L7 Gateway Routing.
+### Resiliency Engine & APIs
+*   **Framework**: Python 3.11+ / FastAPI.
+*   **Replication Core**: Native integration with Aurora Global, Cosmos DB, and Multi-Region S3.
+*   **Failover Hub**: Orchestration of AWS Route 53, Azure Front Door, and GCP Global Load Balancer.
+*   **Persistence**: PostgreSQL (Metadata Lake) and Redis (Live Health Cache).
+*   **Auth Orchestrator**: Federated OIDC/SAML for least-privilege resiliency management access.
 
-### Frontend (Geo.Ops Hub)
-- **Framework**: React 18 / Vite
-- **Visuals**: Recharts (Regional Latency, Traffic Steering, Availability Trends).
-- **Theme**: Dark, Emerald, and Slate (Institutional Resilience Aesthetics).
+### Resiliency Dashboard (UI)
+*   **Framework**: React 18 / Vite.
+*   **Theme**: Dark, Emerald, Slate (Modern high-fidelity operational aesthetic).
+*   **Visualization**: D3.js for global traffic maps and Recharts for regional availability trends.
 
-### Infrastructure
-- **Cloud**: AWS (Multi-Region), AWS EKS (Runtime), RDS (Persistence).
-- **IaC**: Terraform (Networking, K8s, RDS, Kafka, IAM).
+### Infrastructure & DevOps
+*   **Runtime**: AWS EKS or Azure Kubernetes Service (AKS) across multiple regions.
+*   **Connectivity**: Dedicated inter-region peering and global VPC/VNet backbones.
+*   **IaC**: Modular Terraform for deploying the multi-region hub and regional cluster distributions.
+
+---
+
+## 🏗️ IaC Mapping (Module Structure)
+
+| Module | Purpose | Real Services |
+| :--- | :--- | :--- |
+| **`infrastructure/resi_hub`** | Central management plane | EKS, PostgreSQL, Redis |
+| **`infrastructure/regions`** | Regional cluster templates | EKS, RDS, VPC |
+| **`infrastructure/traffic`** | Global load balancing | Route53, Front Door |
+| **`infrastructure/auditing`** | Forensic resiliency sinks | S3, Athena, Quicksight |
 
 ---
 
 ## 🚀 Deployment Guide
 
-### Local Development
+### Local Principal Environment
 ```bash
-# Clone the repository
+# Clone the resiliency platform
 git clone https://github.com/devopstrio/multi-region-application-patterns.git
 cd multi-region-application-patterns
 
-# Setup environment
+# Configure environment
 cp .env.example .env
 
-# Launch the multi-region resilience mesh
-make up
+# Launch the Resiliency stack
+make init
+
+# Trigger a mock multi-region failover and data replication simulation
+make simulate-failover
 ```
+
 Access the Resilience Hub at `http://localhost:3000`.
 
 ---
 
 ## 📜 License
 Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+<div align="center">
+  <p>© 2026 Devopstrio. All rights reserved.</p>
+</div>
